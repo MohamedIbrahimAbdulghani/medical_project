@@ -11,11 +11,12 @@
         $password = $_POST["password"];
         if(checkEmpty($name) && checkEmpty($email) && checkEmpty($password)):
             if(validEmail($email)):
-                $hash_password = password_hash($password, PASSWORD_DEFAULT);
-                $insert_data = "INSERT INTO `admins` (`admin_name`, `admin_email`, `admin_password`) VALUES ('$name', '$email', '$hash_password')";
+                // $hash_password = password_hash($password, PASSWORD_DEFAULT);
+                // $hash_password = sha1($password);
+                $insert_data = "INSERT INTO `admins` (`admin_name`, `admin_email`, `admin_password`) VALUES ('$name', '$email', '$password')";
                 $success_message = insertAdmin($insert_data);
             else:
-                $error_message = "Please Enter Valid Email";
+                $error_message = "Please Type Correct Email";
             endif;
         else:
             $error_message = "Please Fill All Fields";
@@ -28,16 +29,13 @@
         <h3 class="text-center p-3 bg-primary text-white">Add New Admin</h3>
         <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
             <div class="form-group">
-                <label>Name</label>
-                <input type="text" name="name" class="form-control">
+                <input type="text" name="name" class="form-control mb-3 mt-3" placeholder="Enter your name">
             </div>
             <div class="form-group">
-                <label>Email</label>
-                <input type="text" name="email" class="form-control">
+                <input type="text" name="email" class="form-control mb-3" placeholder="Enter your email">
             </div>
             <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control">
+                <input type="password" name="password" class="form-control mb-3" placeholder="Enter your password">
             </div>
             <button type="submit" name="submit" class="btn btn-success save">Save</button>
         </form>

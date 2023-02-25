@@ -1,10 +1,10 @@
 <?php
 
 function checkEmpty($value) {
-    if(empty($value)):
-        return false;
-    else:
+    if(!empty($value)):
         return true;
+    else:
+        return false;
     endif;
 }
 

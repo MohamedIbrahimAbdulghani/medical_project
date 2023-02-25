@@ -1,4 +1,10 @@
+<?php
 
+  if(!isset($_SESSION["admin_name"])):
+    header("Location:" . BURLA . "login.php");
+  endif;
+  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,6 +64,10 @@
           </ul>
         </li>
       </ul>
+
+      <?php  if(isset($_SESSION["admin_name"])) { ?> 
+                <button class="btn btn-danger"><a class="nav-link " aria-current="page" href="<?php echo BURLA . "logout.php" ?>">Logout</a></button>;
+            <?php } ?>
     </div>
   </div>
 </nav>
