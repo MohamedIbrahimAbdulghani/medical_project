@@ -14,7 +14,7 @@
                 // $hash_password = password_hash($password, PASSWORD_DEFAULT);
                 // $hash_password = sha1($password);
                 $insert_data = "INSERT INTO `admins` (`admin_name`, `admin_email`, `admin_password`) VALUES ('$name', '$email', '$password')";
-                $success_message = insertAdmin($insert_data);
+                $success_message = insertData($insert_data);
             else:
                 $error_message = "Please Type Correct Email";
             endif;

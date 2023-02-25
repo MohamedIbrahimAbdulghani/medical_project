@@ -33,8 +33,8 @@
             Cities
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Add</a></li>
-            <li><a class="dropdown-item" href="#">View All</a></li>
+            <li><a class="dropdown-item" href="<?php echo BURLA . "cities/add.php" ?>">Add</a></li>
+            <li><a class="dropdown-item" href="<?php echo BURLA . "cities/all_cities.php" ?>">View All</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">

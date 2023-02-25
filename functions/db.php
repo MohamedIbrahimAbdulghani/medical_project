@@ -12,7 +12,7 @@ if($connection_database === false):
 endif;
 
 
-function insertAdmin($sql) {
+function insertData($sql) {
     global $connection_database;
     $result = mysqli_query($connection_database, $sql);
     if($result === true):
@@ -29,4 +29,19 @@ function login($email, $password) {
     $query = mysqli_query($connection_database, $select_user);
     $result = mysqli_fetch_assoc($query);
     return $result;
+}
+
+function getRows($table) {
+    global $connection_database;
+    $sql = "SELECT * FROM `$table` ";
+    $result = mysqli_query($connection_database, $sql);
+    if($result):
+        $rows = [];
+        if(mysqli_num_rows($result) > 0):
+            while($row = mysqli_fetch_assoc($result)):
+                $rows[] = $row;
+            endwhile;
+        endif;
+        return $rows;
+    endif;
 }

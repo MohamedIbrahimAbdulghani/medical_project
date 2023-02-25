@@ -16,3 +16,11 @@ function validEmail($email) {
         return true;
     endif;
 }
+
+function checkLength($value, $min) {
+    if(trim(strlen($value)) <= $min):
+        return false;
+    else:
+        return true;
+    endif;
+}
