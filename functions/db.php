@@ -45,3 +45,30 @@ function getRows($table) {
         return $rows;
     endif;
 }
+
+function getRow($table, $field,$id)
+{
+    global $connection_database;
+    $sql = "SELECT * FROM `$table` WHERE `$field`='$id' ";
+    $result = mysqli_query($connection_database,$sql);
+
+    if($result) {
+        $rows = [];
+        if(mysqli_num_rows($result) > 0) {
+            $rows[] = mysqli_fetch_assoc($result);
+            return $rows[0];
+        }
+    }
+    return false;
+
+}
+
+function updateData($sql) {
+    global $connection_database;
+    $result = mysqli_query($connection_database, $sql);
+    if($result) {
+        return "Update Data";
+    } else {
+        return false;
+    }
+}

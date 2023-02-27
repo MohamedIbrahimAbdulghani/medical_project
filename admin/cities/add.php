@@ -11,8 +11,10 @@ require_once BL . "functions/validate.php";
         if(checkEmpty($name) && checkLength($name, 3)):
             $sql = "INSERT INTO `cities` (`city_name`) VALUES ('$name') ";
             $success_message = insertData($sql);
+            // Focus This Code
+            header("refresh:1;url=".BURLA."cities/all_cities.php");
         else:
-            $error_message = "Please Fill All Fields";
+            $error_message = "You Must Enter 3 Letter Minimum";
         endif;
     endif;
     require_once BL . "functions/messages.php";
